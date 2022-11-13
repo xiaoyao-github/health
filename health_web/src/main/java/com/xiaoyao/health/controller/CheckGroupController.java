@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author xiaoyao
- * @create 2022-07-04 22:03
+ * @create 2022-07-04 22:03 hello
  */
 @RestController
 @RequestMapping(value = "/checkGroup")
