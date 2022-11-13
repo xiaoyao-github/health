@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiaoyao.health.dao.CheckItemDao">
+
+    <!--新增检查项-->
+    <insert id="addCheckItem" parameterType="com.xiaoyao.health.pojo.CheckItem">
+        insert into t_checkitem(code,name,sex,age,price,type,attention,remark)
+        values (#{code},#{name},#{sex},#{age},#{price},#{type},#{attention},#{remark})
+    </insert>
+
+    <!--分页查询-->
+    <!--WHERE t.code LIKE concat('%', #{value} ,'%') OR t.name LIKE concat('%', #{value} ,'%')-->
+    <!--where code = #{value} or name = #{value}-->
+    <select id="selectByCondition" resultType="com.xiaoyao.health.pojo.CheckItem" parameterType="String">
+        select * from t_checkitem t
+        <if test="value != null and value.length > 0">
+            WHERE t.code LIKE concat('%', #{value} ,'%') OR t.name LIKE concat('%', #{value} ,'%')
+        </if>
+    </select>
+
+    <!--删除检查项-->
+    <delete id="deleteCheckItem" parameterType="integer">
+        DELETE FROM t_checkitem WHERE id = #{id}
+    </delete>
+
+    <!--查询待编辑检查项信息-->
+    <select id="findCheckItemInfoById" resultType="com.xiaoyao.health.pojo.CheckItem">
+        SELECT *  FROM t_checkitem where id =#{id}
+    </select>
+
+    <!--编辑好的检查项信息落地-->
+    <update id="editCheckItemInfo">
+        update t_checkitem
+        <set>
+            <if test="code!=null and code.length>0">
+                code=#{code},
+            </if>
+            <if test="name!=null and name.length>0">
+                name=#{name},
+            </if>
+            <if test="sex!=null and sex.length>0">
+                sex=#{sex},
+            </if>
+            <if test="age!=null and age.length>0">
+                age=#{age},
+            </if>
+            <if test="price!=null">
+                price=#{price},
+            </if>
+            <if test="type!=null and type.length>0">
+                type=#{type},
+            </if>
+            <if test="remark!=null and remark.length>0">
+                remark=#{remark},
+            </if>
+            <if test="attention!=null and attention.length>0">
+                attention=#{attention},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>

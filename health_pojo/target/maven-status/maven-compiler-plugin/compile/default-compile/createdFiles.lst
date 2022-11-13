@@ -1,0 +1,13 @@
+com\xiaoyao\health\entity\Result.class
+com\xiaoyao\health\pojo\Member.class
+com\xiaoyao\health\pojo\OrderSetting.class
+com\xiaoyao\health\pojo\Role.class
+com\xiaoyao\health\pojo\Menu.class
+com\xiaoyao\health\pojo\Setmeal.class
+com\xiaoyao\health\pojo\CheckGroup.class
+com\xiaoyao\health\entity\PageResult.class
+com\xiaoyao\health\pojo\CheckItem.class
+com\xiaoyao\health\entity\QueryPageBean.class
+com\xiaoyao\health\pojo\Permission.class
+com\xiaoyao\health\pojo\User.class
+com\xiaoyao\health\pojo\Order.class
